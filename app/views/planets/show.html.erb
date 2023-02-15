@@ -1,0 +1,18 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @planet.banner_url %>);">
+  <div class="container">
+    <h1><%= @planet.name %></h1>
+    <%= link_to 'Add Alien', '#', class: 'btn btn-danger mt-2'  %>
+  </div>
+</div>
+<div class="container my-4">
+  <div class="cards">
+    <% @planet.aliens.each do |alien| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= alien.image_url %>)">
+        <%= alien.name %>
+        <%= link_to alien_path(alien), class: 'card-remove-link', data: { turbo_method: :delete, turbo_confirm: "Exterminate #{alien.name}?" } do %>
+          <i class="fa-solid fa-skull"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
