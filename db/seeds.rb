@@ -1,9 +1,11 @@
 puts "Clearing the DB..."
 Planet.destroy_all
+Power.destroy_all
 
 pizza_planet = Planet.create!(
   name: 'Pizza Planet',
-  banner_url: 'https://external-preview.redd.it/mfOQ0eUPj3SldsPGqHDsSfhCpo-uHTPpJfXVEpEu5z0.jpg?auto=webp&s=2e358d7534e3b1ef9912e2f51ea71e85c092510f'
+  # banner_url: 'https://external-preview.redd.it/mfOQ0eUPj3SldsPGqHDsSfhCpo-uHTPpJfXVEpEu5z0.jpg?auto=webp&s=2e358d7534e3b1ef9912e2f51ea71e85c092510f'
+  banner_url: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pizza-planet-1524164902.jpg?crop=1.00xw:0.446xh;0,0.453xh&resize=480:*'
 )
 
 puts "Creating aliens..."
@@ -79,3 +81,11 @@ Alien.create!(
   planet: pizza_planet
 )
 puts "... created #{Alien.count} aliens"
+
+puts 'Creating powers....'
+20.times do
+  Power.create!(
+    name: Faker::Superhero.unique.power
+  )
+end
+puts "... created #{Power.count} powers."

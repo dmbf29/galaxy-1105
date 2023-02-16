@@ -1,0 +1,7 @@
+<div class="container mt-3">
+  <h1>Add Power</h1>
+  <%= simple_form_for [@alien, @mutation] do |f| %>
+    <%= f.association :power, include_blank: false, collection: @powers %>
+    <%= f.submit 'Submit', class: 'btn btn-danger mt-2' %>
+  <% end %>
+</div>
