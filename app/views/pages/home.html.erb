@@ -1,0 +1,15 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://d18lkz4dllo6v2.cloudfront.net/cumulus_uploads/entry/43959/adobe-aliens.jpeg);">
+  <div class="container">
+    <h1>Galaxy 1105</h1>
+  </div>
+</div>
+<div class="container my-5">
+  <div class="cards">
+    <% @planets.each do |planet| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= planet.banner_url %>)">
+        <%= planet.name %>
+        <%= link_to '', planet_path(planet), class: 'card-category-link'%>
+      </div>
+    <% end %>
+  </div>
+</div>
