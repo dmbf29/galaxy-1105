@@ -1,13 +1,15 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @planet.banner_url %>);">
   <div class="container">
     <h1><%= @planet.name %></h1>
-    <%= link_to 'Add Alien', '#', class: 'btn btn-danger mt-2'  %>
+    <%= link_to 'Add Alien', new_planet_alien_path(@planet), class: 'btn btn-danger mt-2'  %>
   </div>
 </div>
+<%# image tag -> it + tab%>
+<%# cloudinary image tag -> it + tab%>
 <div class="container my-4">
   <div class="cards">
     <% @planet.aliens.each do |alien| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= alien.image_url %>)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= alien.photo.attached? ? cl_image_path(alien.photo.key) : alien.image_url %>)">
         <%= alien.name %>
         <div class="card-tags">
           <% alien.powers.each do |power| %>

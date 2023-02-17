@@ -27,6 +27,6 @@ class AliensController < ApplicationController
   private
 
   def alien_params
-    params.require(:alien).permit(:name, :image_url)
+    params.require(:alien).permit(:name, :photo)
   end
 end
